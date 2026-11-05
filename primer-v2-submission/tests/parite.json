@@ -1,0 +1,85 @@
+{
+  "tolerance": 0.0001,
+  "cases": [
+    {
+      "id": "case-1",
+      "input": {
+        "bekleme_suresi_sn": 1.2,
+        "karar_degistirme": 0,
+        "tekrar_okuma": 0,
+        "onceki_yanlis": 0,
+        "onceki_ipucu": 0,
+        "zorluk": 1,
+        "dal_kodu": 1
+      },
+      "probabilities": [
+        0.8948086500167847,
+        0.10519137978553772
+      ]
+    },
+    {
+      "id": "case-2",
+      "input": {
+        "bekleme_suresi_sn": 8.0,
+        "karar_degistirme": 1,
+        "tekrar_okuma": 0,
+        "onceki_yanlis": 0,
+        "onceki_ipucu": 0,
+        "zorluk": 2,
+        "dal_kodu": 0
+      },
+      "probabilities": [
+        0.7441774010658264,
+        0.2558225989341736
+      ]
+    },
+    {
+      "id": "case-3",
+      "input": {
+        "bekleme_suresi_sn": 14.0,
+        "karar_degistirme": 2,
+        "tekrar_okuma": 1,
+        "onceki_yanlis": 1,
+        "onceki_ipucu": 0,
+        "zorluk": 3,
+        "dal_kodu": 0
+      },
+      "probabilities": [
+        0.152174174785614,
+        0.847825825214386
+      ]
+    },
+    {
+      "id": "case-4",
+      "input": {
+        "bekleme_suresi_sn": 20.0,
+        "karar_degistirme": 3,
+        "tekrar_okuma": 2,
+        "onceki_yanlis": 2,
+        "onceki_ipucu": 1,
+        "zorluk": 4,
+        "dal_kodu": 1
+      },
+      "probabilities": [
+        0.008857131004333496,
+        0.9911428689956665
+      ]
+    },
+    {
+      "id": "case-5",
+      "input": {
+        "bekleme_suresi_sn": 5.5,
+        "karar_degistirme": 0,
+        "tekrar_okuma": 1,
+        "onceki_yanlis": 1,
+        "onceki_ipucu": 2,
+        "zorluk": 5,
+        "dal_kodu": 2
+      },
+      "probabilities": [
+        0.29133468866348267,
+        0.7086653113365173
+      ]
+    }
+  ]
+}

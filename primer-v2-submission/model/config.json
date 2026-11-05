@@ -1,0 +1,213 @@
+{
+  "title": "The Primer v2 — uyarlanabilir tutor",
+  "description": "Sentetik başlangıç verisiyle eğitilmiş, demo amaçlı küçük lojistik regresyon modeli.",
+  "target": "ipucu_istendi",
+  "model_version": "2.0.0",
+  "classes": [
+    "0",
+    "1"
+  ],
+  "class_labels": {
+    "0": "İpucu istemedi",
+    "1": "İpucu istedi"
+  },
+  "features": [
+    {
+      "name": "bekleme_suresi_sn",
+      "label": "Karar süresi (sn)"
+    },
+    {
+      "name": "karar_degistirme",
+      "label": "Karar değiştirme sayısı"
+    },
+    {
+      "name": "tekrar_okuma",
+      "label": "Tekrar okuma sayısı"
+    },
+    {
+      "name": "onceki_yanlis",
+      "label": "Önceki yanlış sayısı"
+    },
+    {
+      "name": "onceki_ipucu",
+      "label": "Önceki tutor ipucu sayısı"
+    },
+    {
+      "name": "zorluk",
+      "label": "Sahne zorluğu (1–5)"
+    },
+    {
+      "name": "dal_kodu",
+      "label": "Seçilen dal kodu (0–2)"
+    }
+  ],
+  "input": {
+    "name": "input",
+    "dtype": "float32",
+    "shape": [
+      null,
+      7
+    ]
+  },
+  "output": {
+    "name": "probabilities",
+    "dtype": "float32",
+    "shape": [
+      null,
+      2
+    ]
+  },
+  "prediction_threshold": 0.55,
+  "request_schema": {
+    "type": "object",
+    "properties": {
+      "bekleme_suresi_sn": {
+        "type": "number"
+      },
+      "karar_degistirme": {
+        "type": "number"
+      },
+      "tekrar_okuma": {
+        "type": "number"
+      },
+      "onceki_yanlis": {
+        "type": "number"
+      },
+      "onceki_ipucu": {
+        "type": "number"
+      },
+      "zorluk": {
+        "type": "number"
+      },
+      "dal_kodu": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "bekleme_suresi_sn",
+      "karar_degistirme",
+      "tekrar_okuma",
+      "onceki_yanlis",
+      "onceki_ipucu",
+      "zorluk",
+      "dal_kodu"
+    ],
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "probabilities": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "required": [
+      "probabilities"
+    ],
+    "additionalProperties": false
+  },
+  "metrics": {
+    "balanced_accuracy": 0.703125,
+    "roc_auc": 0.774554,
+    "brier_score": 0.193361,
+    "train_decisions": 180,
+    "test_decisions": 60,
+    "train_sessions": 36,
+    "test_sessions": 12,
+    "class_1_rate_test": 0.533333
+  },
+  "acceptance_gates": {
+    "balanced_accuracy_min": 0.62,
+    "roc_auc_min": 0.68,
+    "brier_max": 0.24
+  },
+  "onnx_max_abs_diff": 9.459442240622451e-08,
+  "onnx_exporter": "skl2onnx",
+  "seed": 13,
+  "synthetic_data_seed": 20261105,
+  "evaluation_split": {
+    "method": "GroupShuffleSplit",
+    "test_size": 0.25,
+    "random_state": 13,
+    "group_column": "oturum_id"
+  },
+  "sklearn_version": "1.9.1",
+  "python_version": "3.12.14",
+  "dependencies": {
+    "numpy": "2.3.5",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "skl2onnx": "1.20.0",
+    "onnx": "1.23.2",
+    "onnxruntime": "1.31.1"
+  },
+  "data_sources": {
+    "sentetik": 240
+  },
+  "data_source_sessions": {
+    "sentetik": 48
+  },
+  "real_sessions": 0,
+  "synthetic_sessions": 48,
+  "min_real_sessions_for_release": 15,
+  "evaluation_gates_passed": true,
+  "onnx_parity_passed": true,
+  "real_data_ready": false,
+  "synthetic_demo_ready": true,
+  "release_ready": false,
+  "data_sha256": "441014ea71f37ecc7f2539a350c44c76543d4531928ace8405bc6bde787f7be8",
+  "onnx_sha256": "2f71d4f52a6b2918abbd0b6cb58da37e114138c29f6f601792fd9d49b3a83f36",
+  "reference_inputs": [
+    [
+      1.2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      8.0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      14.0,
+      2,
+      1,
+      1,
+      0,
+      3,
+      0
+    ],
+    [
+      20.0,
+      3,
+      2,
+      2,
+      1,
+      4,
+      1
+    ],
+    [
+      5.5,
+      0,
+      1,
+      1,
+      2,
+      5,
+      2
+    ]
+  ]
+}

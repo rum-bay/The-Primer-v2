@@ -1,0 +1,8 @@
+{
+  "name": "the-primer-v2",
+  "version": "2.0.0",
+  "private": true,
+  "description": "The Primer v2 browser E2E regression tests",
+  "devDependencies": { "cypress": "14.5.0" },
+  "scripts": { "serve": "node scripts/serve.mjs", "e2e": "cypress run" }
+}

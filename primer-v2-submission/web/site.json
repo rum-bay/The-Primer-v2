@@ -1,0 +1,6 @@
+{
+  "model_repo": null,
+  "revision": null,
+  "model_url": "../model/model.onnx",
+  "config_url": "../model/config.json"
+}

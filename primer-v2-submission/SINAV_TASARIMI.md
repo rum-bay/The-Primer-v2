@@ -1,0 +1,11 @@
+# Vize tasarımı: bir bakım kararını kanıtla
+
+**Senaryo:** Saat 16.50'de ödeme servisi için bir düzeltme adayı hazır. Eski test paketi geçiyor; yeni kullanıcı raporunda yalnızca bazen çift tahsilat var. Ürün yöneticisi düzeltmeyi hemen canlıya almak istiyor. Elinde 45 dakika, bir staging ortamı ve son iyi sürümün commit'i var.
+
+**Soru (tek sayfa):** Canlıya geçiş veya geri alma kararını nasıl verirsin? Bir test kahini/oracle belirle; bu olay için en az iki karakterizasyon testi ve iki diferansiyel test girdisi yaz. Hedef uygulama ile referansın hangi gözlemlenebilir çıktısını karşılaştıracağını ve `1e-4` toleransının nerede anlamlı olup nerede yanlış olacağını açıkla. Değişikliği doğrulamak (verification) ile doğru ürün davranışını geçerlemek (validation) arasındaki farkı bu senaryoda örnekle. İlk 20 yol geçip 21. yol bozulan bir regresyonu nasıl yakalayacağını; başarısız yeni sürüm için sürümlemeyi ve rollback adımını; test verisinin sentetik mi gerçek mi olduğunu nasıl kaydedeceğini belirt. Son olarak, uygulama doğru olsa bile seçilen davranışın kullanıcıya yararlı olduğunu nasıl ölçersin?
+
+**Beklenen kavramlar:** Oracle; test kahini bulunmadığında karakterizasyon testi; aynı girdide iki bağımsız tüketicide davranış eşitliği; sayısal olasılık için tolerans, metinsel çıktıda uygun eşitlik; V&V; regresyon ve sınır örnekleri; commit/pinned artifact ve rollback; gerçek/sentetik veri kökeni; iş hedefini sınayan kullanıcı geçerlemesi.
+
+**Çeldiriciler:** “Eski testler geçtiyse tamamdır”; rastgele staging verisini gerçek üretim kanıtı saymak; ONNX dosyası üretildi diye model doğrulandı sanmak; `1e-4`'ü her çıktı türüne uygulamak; tek metrikle güvenli rollout iddia etmek; doğruluk artışının kullanıcı değerini kanıtladığını varsaymak.
+
+Tasarım, [Breck et al. (2017)](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/), [Amershi et al. (2019)](https://www.microsoft.com/en-us/research/wp-content/uploads/2019/03/amershi-icse-2019_Software_Engineering_for_Machine_Learning.pdf) ve [Shankar et al. (2022)](https://arxiv.org/abs/2209.09125) içindeki test, yaşam döngüsü ve üretim gözlemi fikirlerinden esinlenmiştir; senaryo bu çalışma için özgündür.
